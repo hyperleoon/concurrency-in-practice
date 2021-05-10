@@ -14,10 +14,24 @@ public class InterruptThread {
             }
             System.out.println("threadA quit");
         });
-        threadA.start();
-        threadA.interrupt();
-        threadA.join();
-        System.out.println("over");
+//        threadA.start();
+//        threadA.interrupt();
+//        threadA.join();
+//        System.out.println("over");
+
+
+        Thread threadB = new Thread(() -> {
+//            while (Thread.currentThread().isInterrupted()) {
+//                System.out.println("interrupted flag been set");
+//            }
+        });
+
+        threadB.start();
+        threadB.interrupt();
+//        System.out.println(threadB.interrupt());
+        System.out.println(threadB.isInterrupted());
+
+        Thread.interrupted();
     }
 
 }
